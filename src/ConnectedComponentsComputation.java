@@ -45,7 +45,8 @@ public class ConnectedComponentsComputation extends
           // send message to all the neighbors
           for (IntWritable neighbor : vertex.getNeighbors()) {
             if (neighbor.get() > currentValue) {
-              SendMessage(new IntWritable(neighbor.get()), vertex.getValue() )            }  
+              SendMessage(new IntWritable(neighbor.get()), vertex.getValue() );
+            }  
           }
         }
         
@@ -69,7 +70,7 @@ public class ConnectedComponentsComputation extends
      
       if (changed) {
         vertex.setValue(new IntWritable(currentValue));
-        sendMessageToAllEdges(vertex.getValue())
+        sendMessageToAllEdges(vertex.getValue());
       }
       
       vertex.voteToHalt();
