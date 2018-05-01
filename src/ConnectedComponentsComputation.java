@@ -32,7 +32,7 @@ public class ConnectedComponentsComputation extends
       
       // first superstep,
       if (getSuperStep() == 0) {
-        for IntWritable neighbor = vertex.getNeighbors()) {
+        for (IntWritable neighbor : vertex.getNeighbors()) {
           if (neighbor.get() < currentValue) {
             currentValue = neighbor.get();
           }
@@ -43,7 +43,7 @@ public class ConnectedComponentsComputation extends
         if (currentValue != vertex.getValue().get()) {
           vertex.setValue(new IntWritable(currentValue));
           // send message to all the neighbors
-          for IntWritable neighbor = vertex.getNeighbors()) {
+          for (IntWritable neighbor : vertex.getNeighbors()) {
             if (neighbor.get() > currentValue) {
               SendMessage(new IntWritable(neighbor.get()), vertex.getValue() )            }  
           }
